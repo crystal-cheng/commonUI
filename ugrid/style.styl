@@ -1,0 +1,842 @@
+.ugrid{
+  display:-moz-box;
+  display:-webkit-box;
+  display:-ms-flexbox;
+
+  -ms-flex-direction:column;
+  -moz-box-orient:vertical;
+  -webkit-box-orient:vertical;
+  -ms-flex-wrap:none;
+  position:relative;
+  .control{
+    overflow: visible;/* modified by liudezhi @2016-11-17 origin:hidden*/
+    position: relative;
+    z-index: 2; // change by sjc in 2017-06-08 origin:1 change header's index to 1 at the same time
+    white-space: nowrap;
+    margin-right: blank_common;
+    &:hover{
+      overflow: visible;
+    }
+    li{
+      display: inline-block;
+      padding-right: blank_common;
+    }
+    li:last-child{
+      padding-right: 0;
+    }
+    .ubtn{
+      padding: 0 13px;
+      text-align: center;
+
+
+      .fa-css-add {
+        font-size: 14px;
+        margin: 0 5px 0 0;
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        /* IE 9 */
+        -moz-transform: rotate(45deg);
+        /* Firefox */
+        -webkit-transform: rotate(45deg);
+        /* Safari ?o?? Chrome */
+        -o-transform: rotate(45deg);
+        /* Opera */
+      }
+
+      i{
+        size_common
+        margin: 0 5px 0 0;
+      }
+    }
+  }
+  .operate{
+    white-space: nowrap;
+    overflow: hidden;
+    span{
+      display: inline-block;
+      padding-right blank_common
+    }
+    span.single{
+      visibility: hidden;
+    }
+    i{
+      size_large
+      margin: 0;
+      color col_placeholder
+      cursor: pointer;
+    }
+    &:hover{
+      overflow: visible;
+      .single{
+        visibility: visible;
+      }
+    }
+    i:hover{
+      color col_hover
+    }
+  }
+  .search{
+    &>div{
+      margin-left blank_common
+      position : relative;
+    }
+    .union{
+      input{
+        width:230px;
+      }
+    }
+    .uinput>input{
+      width:270px;
+    }
+    .classic {
+      display: none;
+      position: relative;
+        input {
+          height: 30px;
+          width: 280px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          border-radius: 3px;
+          border 1px solid col_border
+          background-repeat: no-repeat;
+          background-image: url("image/funne.png");
+          background-position: 7px 50%;
+          padding-left: 43px;
+          color col_placeholder
+          cursor: pointer;
+        }
+        input:focus{
+          outline: none;
+        }
+        &:hover {
+          i.fa-times-circle {
+            display: block;
+          }
+        }
+        .arrowup {
+          z-index: 1;
+          left: 25px;
+        }
+        i.fa {
+          color: #b8b8b8;
+          size_large
+          position: absolute;
+          top: 10px;
+          margin: 0;
+          cursor: pointer;
+        }
+        i.fa-angle-down {
+          left: 25px;
+          pointer-events: none;
+        }
+        i.fa-times-circle {
+          right: 10px;
+          opacity: 0.6;
+          display: none;
+        }
+        i.fa-times-circle:hover {
+          opacity: 1;
+        }
+        aside {
+          position: absolute;
+          left: 0;
+          display: none;
+        }
+        ul {
+          radius_little
+          border: 1px solid col_border;
+          min-width: 100px;
+          box-sizing: border-box;
+          position: relative;
+          top: 5px;
+          line-height height_common
+          background-color: #ffffff;
+          li {
+            border-bottom: 1px solid col_border;
+            color: #666666;
+            cursor: pointer;
+            padding 0 blank_common
+            height height_common
+            line-height height_common
+          }
+          li:hover{
+          background-color col_lightblue
+          color: #ffffff;
+        }
+          li:first-child{
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+        }
+          li:last-child{
+          border-bottom: 0;
+          border-bottom-left-radius: 3px;
+          border-bottom-right-radius: 3px;
+        }
+      }
+    }
+  }
+  .ugrid_setting{
+    position: absolute;
+    margin-top: 11px;
+    right: 8px;
+  }
+  .fixed_head{
+    width: auto;
+    background: #ffffff;
+    position : absolute;
+    // comment out by liudezhi at 2016.11.30
+    z-index: 1; // use it by sjc in 2017-06-08 and change buttons' index at the same time
+    .td{
+      white-space nowrap;
+    }
+    .td:hover{
+      .sort{
+        visibility: visible;
+        background-position: -57px -10px;
+      }
+    }
+  }
+  .table_wrap{
+    overflow-y: auto;
+    overflow-x: hidden;
+    position relative
+  }
+  .table{
+    display: table;
+    width: 100%;
+    .head{
+      opacity : 0;
+      .td{
+        white-space nowrap
+      }
+    }
+  }
+  .head{
+    display: table-row;
+    height height_large
+    line-height height_large
+    size_common
+    font-weight: 600;
+    color: #222222;
+    cursor: pointer;
+    .sort{
+      float: right;
+      size_little
+      visibility: hidden;
+      margin-right blank_common
+      color col_hover
+      padding-top: 2px;
+      margin-top:10px;
+      height: 16px;
+      width: 10px;
+      background: url(image/arrow_icon.png) no-repeat;
+      background-size: 150px 190px;
+      background-position: -42px -10px;
+    }
+    .sort.switch{
+      transform: rotate(180deg);
+    }
+    .td.sorted{
+      .sort{
+        visibility: visible;
+        &:hover{
+          //background-position: -12px -10px;
+        }
+      }
+    }
+
+    .td:hover{
+      .sort{
+        visibility: visible;
+        background-position: -57px -10px;
+      }
+    }
+  }
+  .tr{
+    display: table-row;
+    height height_large
+    line-height height_large
+    color #666666
+    .ucheckbox{
+      display inline
+    }
+  }
+  //.tr:nth-child(2n+1){
+  //  background-color col_bg
+  //}
+  .tr:hover{
+    background-color: #f5f5f5;
+  }
+  .td{
+    border-bottom: 1px solid #e3e3e3;
+    display: table-cell;
+    padding-left: 10px;
+    vertical-align :top;
+
+    .blank{
+      color #cccccc
+    }
+  }
+  .td.ellipsis{
+    max-width: 100px;
+    position: relative;
+    word_ellipsis
+  }
+  .td.ellipsis{
+    .copyInput{
+      opacity: 0;
+      position:absolute;
+    }
+    .copyTip{
+      position: absolute;
+      right: 0;
+      opacity: 0;
+      border: 1px solid #999;
+      height: 20px;
+      top: 10px;
+      line-height: 20px;
+      padding: 0 3px;
+      background: #ffffff;
+      border-radius: 3px;
+      z-index: 0;
+      transition: opacity linear 500ms;
+    }
+    .copyTip.show{
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+  .nodata{
+    margin-top: 50px;
+    text-align: center;
+    color col_word
+  }
+  .loadimg{
+    display :none;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .page{
+    height height_large
+    line-height height_large
+    color #999999
+    /*span.start{
+      color #666666
+    }
+    span.end{
+      color #666666
+    }
+    span.total{
+      color #666666
+    }*/
+  }
+  .paging{
+    text-align: right;
+    span{
+      cursor: pointer;
+    }
+    span>i{
+      background: url(image/arrow_icon.png) no-repeat;
+      background-size: 150px 190px;
+    }
+    /*.cur{
+      height: 30px;
+      border: 1px solid col_border;
+      radius_little
+      padding-left blank_common
+      box-sizing: border-box;
+      width: 30px;
+    }
+    .first{
+      background-position: 0 0;
+    }
+    .prev{
+      background-position: -23px 0;
+    }
+    .next{
+      background-position: -150px 0;
+    }
+    .last{
+      background-position: -171px 0;
+    }*/
+
+    /**new style start*/
+    .page_common{
+      border: 1px solid col_border;
+
+      display: inline-block;
+      height: 32px;
+      width: 32px;
+      line-height: 32px;
+      text-align: center;
+      vertical-align: middle;
+      box-sizing: border-box;
+      background-color: #ffffff;
+    }
+    .first{
+      border-right: 0;
+      border-bottom-left-radius: 3px;
+      border-top-left-radius: 3px;
+    }
+    .first>i{
+      background-position: -11px -46px;
+      border-right: 0;
+      padding: 0 6px;
+    }
+    .first:hover{
+      i{
+        background-position: -11px -62px;
+      }
+    }
+    .prev{
+      border-right: 0;
+    }
+    .prev>i{
+      background-position: -24px -46px;
+      border-right: 0;
+      padding: 0 6px;
+    }
+    .prev:hover{
+      i{
+        background-position: -24px -62px;
+      }
+    }
+    .cur{
+      border: 1px solid col_border;
+      height: 32px;
+      display: inline-block;
+      vertical-align: middle;
+      padding-left blank_large
+      box-sizing: border-box;
+      border-right: 0;
+      border-radius: 0;
+      line-height: 32px;
+      background-color: #ffffff;
+    }
+    .slash{
+      border: 1px solid col_border;
+      border-left: 0;
+      border-right: 0;
+      display: inline-block;
+      vertical-align: middle;
+      height: 32px;
+      box-sizing: border-box;
+      line-height: 32px;
+      background-color: #ffffff;
+    }
+    .num{
+      border: 1px solid col_border;
+      padding-right: 20px;
+      box-sizing: border-box;
+      border-left: 0;
+      vertical-align: middle;
+      display: inline-block;
+      height: 32px;
+      line-height: 32px;
+      background-color: #ffffff;
+    }
+    .next{
+      border-left: 0;
+    }
+    .next>i{
+      background-position: -34px -46px;
+      border-right: 0;
+      padding: 0 6px;
+    }
+    .next:hover{
+      i{
+        background-position: -34px -62px;
+      }
+    }
+    .last{
+      border-left: 0;
+      border-bottom-right-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+    .last>i{
+      background-position: -47px -46px;
+      border-right: 0;
+      padding: 0 6px;
+    }
+    .last:hover{
+      i{
+        background-position: -47px -62px;
+      }
+    }
+    .pageDown{
+      display: inline-block;
+      cursor: pointer;
+      .fa-angle-down{
+        position: absolute;
+        size_large
+        margin-top: 16px;
+        margin-left: -17px;
+        color: #adadad;
+        font-size: 14px;
+      }
+    }
+    .pageSizeDown{
+      vertical-align: middle;
+      span{
+        background:none;
+        padding-right: 10px;
+      }
+      span + i{
+        margin:6px 8px 0 0;
+        padding-right:0;
+      }
+      margin-left blank_common
+      box-sizing:border-box;
+      height: 32px;
+    }
+    /**new style end*/
+  }
+}
+
+
+.ugrid.version_2 {
+  header {
+    height 60px
+
+    .title {
+      font-size 18px
+      color col_import
+      margin-right 15px
+    }
+  }
+
+  .control {
+
+    li{
+      padding-right 0
+    }
+
+    .ubtn {
+      background-color inherit
+      background-color 	transparent
+      padding 0 8px
+
+      i{
+        margin 0 10px -6px 0
+      }
+
+      span {
+        font-size 14px
+      }
+    }
+	
+	.response_icon{
+		display:none;
+	}
+    .response_icon.show{
+      display:inline-block;
+    }
+	
+	.ugrid_response{
+		display:inline-block;
+		position:static;
+		border:0px;
+		
+		li{
+			display:inline-block;
+		}
+	}
+    .ugrid_response{
+
+      display:none;
+      position:absolute;
+      min-width:100px;
+      min-height:30px;
+      box-sizing:content-box;
+      background-color:transparent;
+
+      ul{
+        position:absolute;
+        top:0;
+        left:0;
+        border:1px solid #e0e0e0;
+        box-shadow: 0 0 20px #e0e0e0;
+        border-radius: 5px;
+        background-color:white;
+
+        width:auto;
+        min-height:30px;
+
+        li{
+          display:block;
+          margin:5px 0;
+          padding:4px;
+        }
+        li:hover{
+				background-color:#e2e2e2;
+			}
+      }
+
+      ul:before{
+			border: solid 7px transparent;
+			border-bottom: 7px solid #e0e0e0;
+			width: 0;
+			height: 0;
+			content: '';
+			position: absolute;
+			left: 14px;
+			top: -14px;
+		}
+      ul:after{
+			border: solid 6px transparent;
+			border-bottom: 6px solid white;
+			width: 0;
+			height: 0;
+			content: '';
+			position: absolute;
+			left: 15px;
+			top: -12px;
+		}
+
+    }
+
+    .ugrid_response.stealth{
+      display:block;
+      opacity: 0;
+    }
+    /*@media screen and (max-width: 1320px) {
+
+	}*/
+  }
+
+  .container {
+    padding 25px 20px
+    border 1px solid col_border
+    border-radius 5px
+    background-color #FFFFFF
+  }
+  .search {
+    //margin-bottom 10px
+    & > div {
+      margin-right blank_common
+      margin-left 0
+    }
+    &>div:last-child{
+      margin-right: 0;
+    }
+
+    .mix {
+      border 1px solid col_border
+      -webkit-border-radius 5px
+      -moz-border-radius 5px
+      border-radius 5px
+      background-color #FFFFFF
+
+      .ubtn {
+          float left
+          border 0
+      }
+
+      .uinput {
+        float left
+        border-left 1px solid col_border
+
+        .input {
+          border 0
+        }
+
+        .icon{
+          margin-top 8px
+          cursor pointer
+        }
+      }
+    }
+  }
+
+
+  .fixed_head{
+
+    .td{
+      font-size 12px
+      white-space: nowrap;
+    }
+  }
+}
+/*****************************action icons start**************************************/
+.ugrid.version_2{
+  .control li .ubtn {
+    &[disabled] {
+      .ugrid_icon {
+        opacity: 0.7;
+      }
+      span {
+        color: #999999;
+      }
+    }
+    &:not([disabled]):hover {
+      span {
+        color: #ab1a86;
+      }
+    }
+  }
+
+      .ugrid_icon{
+        background-image: url("image/ation_icons.png");
+        background-size: 50px 600px;
+        width: 21px;
+        height:21px;
+        line-height:24px;
+        margin-bottom: -6px;
+
+        &.ugrid_icon_add{
+          background-position: 0px -1px;
+        }
+        &.ugrid_icon_delete{
+          background-position: 0px -47px;
+        }
+        &.ugrid_icon_modify{
+          background-position: 0px -24px;
+        }
+        &.ugrid_icon_refresh{
+          background-position: 0px -113px;
+        }
+        &.ugrid_icon_start{
+          background-position:0px -69px;
+        }
+        &.ugrid_icon_stop{
+          background-position: 0px -91px;
+        }
+        &.ugrid_icon_replace{
+          background-position: 0px -136px;
+        }
+        &.ugrid_icon_install{
+          background-position: 0px -182px;
+        }
+        &.ugrid_icon_layer{
+          background-position: 0px -204px;
+        }
+        &.ugrid_icon_delete_layer{
+          background-position: 0px -226px;
+          margin-bottom -4px
+        }
+        &.ugrid_icon_loacl{
+          background-position: 0px -271px;
+        }
+        &.ugrid_icon_remote{
+          background-position: 0px -247px;
+          margin-bottom -5px
+        }
+        &.ugrid_icon_unremote{
+          background-position: 0px -315px;
+          margin-bottom -5px
+        }
+        &.ugrid_icon_clone{
+          background-position: 0px -294px;
+          margin-bottom -5px
+        }
+        &.ugrid_icon_flatten{
+          background-position: 0px -361px;
+        }
+        &.ugrid_icon_resize{
+          background-position: 0px -338px;
+        }
+        &.ugrid_icon_rollback {
+          background-position: 0px -271px;
+        }
+        &.ugrid_icon_redeploy {
+          background-position: 0px -158px;
+        }
+        &.ugrid_icon_more{
+          background-position: 0px -429px;
+        }
+        &.ugrid_icon_mount{
+          background-position: 0px -475px;
+        }
+        &.ugrid_icon_umount{
+          background-position: 0px -452px;
+        }
+      }
+
+      .control li .ubtn:not([disabled]):hover{
+        .ugrid_icon_add{
+          background-position: -25px -1px;
+        }
+        .ugrid_icon_delete{
+          background-position: -25px -47px;
+        }
+        .ugrid_icon_modify{
+          background-position: -25px -24px;
+        }
+        .ugrid_icon_refresh{
+          background-position: -25px -113px;
+        }
+        .ugrid_icon_start{
+          background-position:-25px -69px;
+        }
+        .ugrid_icon_stop{
+          background-position: -25px -91px;
+        }
+        .ugrid_icon_replace{
+          background-position: -25px -136px;
+        }
+        .ugrid_icon_install{
+          background-position: -25px -182px;
+        }
+        .ugrid_icon_layer{
+          background-position: -25px -204px;
+        }
+        .ugrid_icon_delete_layer{
+          background-position: -25px -226px;
+        }
+        .ugrid_icon_loacl{
+          background-position: -25px -271px;
+        }
+        .ugrid_icon_remote{
+          background-position: -25px -247px;
+        }
+        .ugrid_icon_unremote{
+          background-position: -25px -315px;
+        }
+        .ugrid_icon_clone{
+          background-position: -25px -294px;
+        }
+        .ugrid_icon_flatten{
+          background-position: -25px -361px;
+        }
+        .ugrid_icon_resize{
+          background-position: -25px -338px;
+        }
+        .ugrid_icon_rollback {
+          background-position: -25px -271px;
+        }
+        .ugrid_icon_redeploy {
+          background-position: -25px -158px;
+        }
+        .ugrid_icon_more{
+          background-position: -25px -429px;
+        }
+        .ugrid_icon_mount{
+          background-position: -25px -475px;
+        }
+        .ugrid_icon_umount{
+          background-position: -25px -452px;
+        }
+      }
+
+}
+/*****************************action icons end**************************************/
+/*****************************listauto start**************************************/
+.ugrid.listauto{
+  .tr{
+    height: auto;
+    line-height: normal;
+    .td{
+      padding:12px 0 12px 10px;
+      vertical-align: middle;
+    }
+  }
+}
+/*****************************listauto start**************************************/
+@media screen and (max-width:1070px){
+  .ugrid .search .uinput>input{
+    width:190px;
+  }
+}
+  /*******************************************************************/
+

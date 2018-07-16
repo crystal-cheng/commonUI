@@ -1,0 +1,64 @@
+<section class="ugrid" id="uGrid" style="display:none;">
+    <header class="horizontal box_center">
+        <ul class="control flex">
+            <li><button class="primary" data-lang="ugrid_func_modify"><i class="fa fa-times fa-css-add"></i>添加</button></li>
+        </ul>
+        <div class="search horizontal">
+            <div class="classic">
+                <input type="text" />
+                <i class="fa fa-times-circle"></i>
+                <i class="fa fa-angle-down"></i>
+                <aside class="list">
+                    <span class="arrowup"><i></i><i></i></span>
+                    <ul>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </header>
+    <div class="flex vertical container">
+        <article class="fixed_head"></article>
+        <section class="table_wrap flex">
+            <div class="table">
+                <ul class="head">
+                    <li class="td"><div class="checkbox"><i class="fa fa-check"></i></div></li>
+                    <li class="td" data-ugrid-key="type" data-ugrid-sort="true" data-lang="ugrid_display_type">类型<i class="sort fa fa-angle-down switch"></i></li>
+                    <li class="td" data-ugrid-key="host" data-lang="ugrid_display_host">主机<i class="sort fa fa-long-arrow-down"></i></li>
+                </ul>
+                <ul class="tr" data-ugrid-key="0" data-ugrid-index="0">
+                    <li class="td"><div class="checkbox"><i class="fa fa-check"></i></div></li>
+                    <li class="td" data-ugrid-key="type">OSD</li>
+                    <li class="td" data-ugrid-key="host">as</li>
+                </ul>
+            </div>
+            <p class="nodata" data-lang="ugrid_tips_no_data">暂无数据！</p>
+            <p class="loadimg"><i class="loadimg_circle"></i></p>
+        </section>
+        <footer class="page horizontal">
+            <p class="flex">
+                <span data-lang="common_common_show_tips_current_show">当前显示</span>
+                <span class="start">1</span>
+                -
+                <span class="end">4</span>
+                <span>条 | 共</span>
+                <span class="total">4</span>
+                <span>条记录</span>
+            </p>
+            <!--<div class="paging flex">
+                <span class="first"></span>
+                <span class="prev"></span>
+                第
+                <input class="cur" type="text" value="2">
+                /<b class="num">1</b>
+                页
+                <span class="next"></span>
+                <span class="last"></span>
+            </div>-->
+            <div class="paging flex">
+                <b  data-lang="ugrid_tips_per_page">每页显示数量</b>
+                <button class="pageSizeDown">10</button>
+                <span class="first page_common"><i></i></span><span class="prev page_common"><i></i></span><p class="pageDown"><b class="cur">1</b><i class="slash">/</i><b class="num">1</b><i class="fa fa-angle-down"></i></p><span class="next page_common"><i></i></span><span class="last page_common"><i></i></span>
+            </div>
+        </footer>
+    </div>
+</section>
