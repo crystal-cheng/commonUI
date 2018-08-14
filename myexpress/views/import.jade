@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+block content
+  h1= title
+ 
+
+  label(
+      for="deployConfig"
+      class="ubtn uborder" data-key="upload"
+  )
+input(
+    data-key="upload"
+    type='file'
+    id="deployConfig"
+)
+img.img
+script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.js')
+script(src='/javascripts/import.js')

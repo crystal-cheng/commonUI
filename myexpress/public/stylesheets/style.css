@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.btn,#btn {
+  width: 100px;
+  height: 40px;
+  background: #00b7ff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  margin: 0 10px;
+  color: #fff;
+}
+.btn:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+.btn:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,123,255,.5);
+}
